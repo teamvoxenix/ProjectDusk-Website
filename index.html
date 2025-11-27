@@ -331,12 +331,42 @@
                     </div>
                 </div>
             </div>
-            <!-- Visualización abstracta de la mecánica (Placeholder) -->
-            <div class="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800 shadow-2xl h-96 flex items-center justify-center">
-                <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/000000/333333?text=Tablet+Interface:+Demon+POV')] bg-cover bg-center opacity-50"></div>
-                <div class="text-center p-8 relative z-20">
-                    <p class="text-white text-2xl font-bold italic">"No mires la pantalla...<br>te está mirando a ti."</p>
+            <!-- Visualización abstracta de la mecánica (Ahora un Carrusel) -->
+            <div class="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800 shadow-2xl h-96 flex items-center justify-center group" id="features-carousel">
+                <div class="flex transition-transform duration-500 ease-in-out" id="carousel-slides">
+                    <!-- Slide 1: Ecolocación -->
+                    <div class="w-full flex-shrink-0 h-96 relative">
+                        <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/000000/333333?text=Ecolocaci%C3%B3n:+Sonar+Activo')] bg-cover bg-center opacity-50"></div>
+                        <div class="text-center p-8 relative z-20 h-full flex items-end justify-center pb-16">
+                            <p class="text-white text-2xl font-bold italic">"El sonido revela el camino... y tu posición."</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2: Ojo Digital -->
+                    <div class="w-full flex-shrink-0 h-96 relative">
+                        <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/000000/333333?text=Tablet:+Rastro+Invisible')] bg-cover bg-center opacity-50"></div>
+                        <div class="text-center p-8 relative z-20 h-full flex items-end justify-center pb-16">
+                            <p class="text-white text-2xl font-bold italic">"Lo que tus ojos no ven, la pantalla te lo muestra."</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3: Perspectiva Parasitaria -->
+                    <div class="w-full flex-shrink-0 h-96 relative">
+                        <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/000000/333333?text=Tablet+Interface:+Demon+POV')] bg-cover bg-center opacity-50"></div>
+                        <div class="text-center p-8 relative z-20 h-full flex items-end justify-center pb-16">
+                            <p class="text-white text-2xl font-bold italic">"No mires la pantalla... te está mirando a ti."</p>
+                        </div>
+                    </div>
                 </div>
+                <!-- Flechas de Navegación -->
+                <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -541,6 +571,27 @@
             if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
                 closeModal();
             }
+        });
+
+        // --- Lógica del Carrusel de Innovación ---
+        const carouselSlides = document.getElementById('carousel-slides');
+        const prevButton = document.getElementById('prev-slide');
+        const nextButton = document.getElementById('next-slide');
+        let currentSlideIndex = 0;
+        const totalSlides = carouselSlides.children.length;
+
+        function updateCarousel() {
+            carouselSlides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentSlideIndex = (currentSlideIndex > 0) ? currentSlideIndex - 1 : totalSlides - 1;
+            updateCarousel();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentSlideIndex = (currentSlideIndex < totalSlides - 1) ? currentSlideIndex + 1 : 0;
+            updateCarousel();
         });
     </script>
 </body>
