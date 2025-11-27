@@ -75,8 +75,8 @@
                             class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Historia</a>
                         <a href="#media"
                             class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Multimedia</a>
-                        <a href="#specs"
-                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Requisitos</a>
+                        <a href="#features"
+                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Innovación</a>
                         <!-- Nuevo Link al Estudio (Importante para Abylight) -->
                         <a href="#studio"
                             class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Sobre Nosotros</a>
@@ -257,7 +257,7 @@
         </div>
     </section>
 
-    <!-- 5. NUEVA SECCIÓN: EL ESTUDIO (Para convencer a Abylight) -->
+    <!-- 5. SECTION: SOBRE NOSOTROS (Actualizada y Optimizada) -->
     <section id="studio" class="py-24 bg-pd-dark border-t border-gray-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -269,33 +269,72 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-6 bg-black border border-gray-800 rounded-lg">
+                <div class="p-6 bg-black border border-gray-800 rounded-lg hover:border-pd-red transition duration-300">
                     <div class="text-pd-red text-4xl mb-4">
-                        <i class="fas fa-heart"></i> <!-- Icono placeholder -->
                         ♥
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Pasión Indie</h3>
-                    <p class="text-pd-grey text-sm">Desarrollamos con el corazón, priorizando la calidad y la visión artística sobre la cantidad.</p>
+                    <p class="text-pd-grey text-sm">Desarrollamos con el corazón, priorizando la calidad y la visión artística sobre la cantidad. Creamos juegos que nosotros mismos queremos jugar.</p>
                 </div>
-                <div class="p-6 bg-black border border-gray-800 rounded-lg">
+                <div class="p-6 bg-black border border-gray-800 rounded-lg hover:border-pd-red transition duration-300">
                     <div class="text-pd-red text-4xl mb-4">
                         ⚡
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Innovación Sonora</h3>
-                    <p class="text-pd-grey text-sm">Implementamos una nueva mecánica de <strong>Audio Acústico</strong> que simula la propagación realista del sonido, redefiniendo la inmersión en el género de terror.</p>
+                    <h3 class="text-xl font-bold text-white mb-2">Game Feel</h3>
+                    <p class="text-pd-grey text-sm">Creemos que un juego debe "sentirse" bien antes de verse bien. Pulimos cada interacción para lograr una respuesta táctil y sonora perfecta.</p>
                 </div>
-                <div class="p-6 bg-black border border-gray-800 rounded-lg">
+                <div class="p-6 bg-black border border-gray-800 rounded-lg hover:border-pd-red transition duration-300">
                     <div class="text-pd-red text-4xl mb-4">
                         🤝
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Comunidad Primero</h3>
-                    <p class="text-pd-grey text-sm">Construimos junto a nuestros jugadores. Escuchamos el feedback y evolucionamos con ellos.</p>
+                    <p class="text-pd-grey text-sm">Construimos junto a nuestros jugadores. Escuchamos el feedback y evolucionamos con ellos desde el día uno.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. NUEVA SECCIÓN: COMPRA / RESERVA -->
+    <!-- 6. NUEVA SECCIÓN: INNOVACIÓN MECÁNICA (Para el Pitch) -->
+    <section id="features" class="py-24 bg-black relative overflow-hidden">
+        <!-- Elemento decorativo de fondo -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-pd-red/10 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+                <h4 class="text-pd-red font-bold tracking-widest uppercase mb-2">Innovación en Gameplay</h4>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">ECOS DEL SILENCIO:<br>VER A TRAVÉS DEL SONIDO</h2>
+                <p class="text-pd-grey text-lg mb-6 leading-relaxed">
+                    En <strong>ProjectDusk</strong>, hemos eliminado el HUD tradicional. Tu única interfaz es tu oído y tu micrófono.
+                    Implementamos un sistema de <strong>"Audio Ray-Tracing"</strong> simplificado donde el sonido no solo ambienta, sino que revela la geometría del nivel.
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pd-red/20 flex items-center justify-center text-pd-red font-bold">1</div>
+                        <div class="ml-4">
+                            <h5 class="text-xl font-bold text-white">Ecolocación Activa</h5>
+                            <p class="text-pd-grey text-sm">Debes generar ruido (golpear paredes, lanzar objetos) para visualizar temporalmente el entorno en la oscuridad absoluta. Pero cuidado: el ruido atrae a lo que acecha.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pd-red/20 flex items-center justify-center text-pd-red font-bold">2</div>
+                        <div class="ml-4">
+                            <h5 class="text-xl font-bold text-white">Input de Micrófono Real</h5>
+                            <p class="text-pd-grey text-sm">La IA enemiga escucha tu micrófono. Si gritas o respiras fuerte en la vida real, te encontrarán en el juego. La inmersión definitiva.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Visualización abstracta de la mecánica (Placeholder) -->
+            <div class="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800 shadow-2xl h-96 flex items-center justify-center">
+                <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/000000/333333?text=Ecolocation+Visual+Mode')] bg-cover bg-center opacity-50"></div>
+                <div class="text-center p-8 relative z-20">
+                    <p class="text-white text-2xl font-bold italic">"Si puedes oírlos,<br>ellos pueden oírte a ti."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SECCIÓN: COMPRA / RESERVA -->
     <section id="buy" class="py-24 bg-gradient-to-t from-pd-red/20 to-black border-t border-pd-dark">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-5xl font-extrabold uppercase mb-6 tracking-tight">Sobrevive al Anochecer</h2>
@@ -338,7 +377,7 @@
         </div>
     </section>
 
-    <!-- 7. FOOTER (VOXENIX Studios) -->
+    <!-- 8. FOOTER (VOXENIX Studios) -->
     <footer id="community" class="py-12 bg-pd-dark border-t border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Logo VOXENIX en el Footer -->
