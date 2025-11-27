@@ -49,14 +49,16 @@
 <body class="bg-black text-white font-sans antialiased">
 
     <!-- NAVEGACIÓN FIJA (Header) -->
+    <!-- Se aumentó la altura de la barra de navegación para acomodar el logo más grande -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm shadow-xl border-b border-pd-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <div class="flex items-center justify-between h-20 md:h-24"> <!-- Altura aumentada a h-24 (96px) en escritorio -->
                 <!-- Logo VOXENIX (Imagen real con transición suave) -->
                 <div class="flex items-center">
                     <a href="#" class="flex items-center group">
                         <!-- URL DE TU LOGO EN IMGUR -->
-                        <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-8 md:h-10 transition duration-500 ease-in-out transform group-hover:scale-110">
+                        <!-- Tamaño aumentado: h-12 en móvil, h-20 en escritorio -->
+                        <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-12 md:h-20 transition duration-500 ease-in-out transform group-hover:scale-110 object-contain">
                     </a>
                 </div>
                 <!-- Menú de navegación -->
@@ -245,7 +247,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Logo VOXENIX en el Footer -->
             <div class="flex justify-center mb-4">
-                <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-10 md:h-12 opacity-80 hover:opacity-100 transition duration-300">
+                <!-- Tamaño aumentado en el footer también: h-24 -->
+                <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-16 md:h-24 opacity-80 hover:opacity-100 transition duration-300 object-contain">
             </div>
             <p class="text-pd-red mb-8">El futuro del terror inmersivo</p>
             
