@@ -72,11 +72,14 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#about"
-                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Juego</a>
+                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Historia</a>
                         <a href="#media"
                             class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Multimedia</a>
                         <a href="#specs"
                             class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Requisitos</a>
+                        <!-- Nuevo Link al Estudio (Importante para Abylight) -->
+                        <a href="#studio"
+                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">El Estudio</a>
                         <!-- Nuevo enlace directo a la compra -->
                         <a href="#buy"
                             class="text-pd-red hover:text-white px-3 py-2 rounded-md text-sm font-bold transition duration-300 uppercase hover:tracking-wider">Reservar</a>
@@ -116,7 +119,7 @@
         </div>
     </header>
 
-    <!-- 2. SECTION: SOBRE EL JUEGO Y TRAILER -->
+    <!-- 2. SECTION: HISTORIA Y TRAILER -->
     <section id="about" class="py-24 bg-black">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
             <!-- Bloque de Texto -->
@@ -254,7 +257,45 @@
         </div>
     </section>
 
-    <!-- 5. NUEVA SECCIÓN: COMPRA / RESERVA -->
+    <!-- 5. NUEVA SECCIÓN: EL ESTUDIO (Para convencer a Abylight) -->
+    <section id="studio" class="py-24 bg-pd-dark border-t border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold uppercase mb-4 tracking-tight">SOBRE VOXENIX</h2>
+                <p class="text-xl text-pd-grey max-w-3xl mx-auto">
+                    Somos un estudio independiente obsesionado con la inmersión narrativa y el diseño de audio.
+                    Creemos que el miedo no es lo que ves, sino lo que escuchas.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 bg-black border border-gray-800 rounded-lg">
+                    <div class="text-pd-red text-4xl mb-4">
+                        <i class="fas fa-heart"></i> <!-- Icono placeholder -->
+                        ♥
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Pasión Indie</h3>
+                    <p class="text-pd-grey text-sm">Desarrollamos con el corazón, priorizando la calidad y la visión artística sobre la cantidad.</p>
+                </div>
+                <div class="p-6 bg-black border border-gray-800 rounded-lg">
+                    <div class="text-pd-red text-4xl mb-4">
+                        ⚡
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Innovación Sonora</h3>
+                    <p class="text-pd-grey text-sm">Tecnología propia de audio binaural para crear experiencias que trascienden la pantalla.</p>
+                </div>
+                <div class="p-6 bg-black border border-gray-800 rounded-lg">
+                    <div class="text-pd-red text-4xl mb-4">
+                        🤝
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Comunidad Primero</h3>
+                    <p class="text-pd-grey text-sm">Construimos junto a nuestros jugadores. Escuchamos el feedback y evolucionamos con ellos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. NUEVA SECCIÓN: COMPRA / RESERVA -->
     <section id="buy" class="py-24 bg-gradient-to-t from-pd-red/20 to-black border-t border-pd-dark">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-5xl font-extrabold uppercase mb-6 tracking-tight">Sobrevive al Anochecer</h2>
@@ -297,7 +338,7 @@
         </div>
     </section>
 
-    <!-- 6. FOOTER (VOXENIX Studios) -->
+    <!-- 7. FOOTER (VOXENIX Studios) -->
     <footer id="community" class="py-12 bg-pd-dark border-t border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Logo VOXENIX en el Footer -->
@@ -337,7 +378,14 @@
                 </a>
             </div>
 
-            <p class="text-xs text-pd-grey">
+            <!-- Nuevo enlace de Press Kit para el Publisher -->
+            <div class="mt-8">
+                <a href="#" class="text-sm text-pd-grey hover:text-white border-b border-pd-grey hover:border-white pb-1 transition duration-300">
+                    PRESS KIT / MEDIA ASSETS
+                </a>
+            </div>
+
+            <p class="text-xs text-pd-grey mt-8">
                 &copy; 2025 VOXENIX Studios. Todos los derechos reservados. ProjectDusk y los logotipos asociados son
                 marcas registradas de VOXENIX Studios.
             </p>
