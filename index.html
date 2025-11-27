@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth"> <!-- Agregado scroll-smooth para desplazamiento suave -->
+<html lang="es" class="scroll-smooth">
+<!-- Agregado scroll-smooth para desplazamiento suave -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,11 +30,12 @@
         /* Estilos CSS personalizados para efectos y ajustes finos */
         .hero-background {
             /* Imagen de fondo genérica de terror. Sustituir por la imagen de ProjectDusk */
-            background-image: linear-gradient(rgba(0,0,0,0.5), #000000 75%), url('https://placehold.co/1920x1080/000000/333333?text=SCENE+FROM+PROJECT+DUSK');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), #000000 75%), url('https://placehold.co/1920x1080/000000/333333?text=SCENE+FROM+PROJECT+DUSK');
             background-size: cover;
             background-position: center;
             height: 100vh;
-            filter: grayscale(100%); /* Efecto visual oscuro */
+            filter: grayscale(100%);
+            /* Efecto visual oscuro */
             transition: filter 1s;
         }
 
@@ -40,39 +43,48 @@
             /* Mantiene la forma biselada de los botones */
             clip-path: polygon(5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%);
         }
-        
-        /* Ocultar el scroll horizontal en dispositivos móviles */
-        body { overflow-x: hidden; }
 
+        /* Ocultar el scroll horizontal en dispositivos móviles */
+        body {
+            overflow-x: hidden;
+        }
     </style>
 </head>
+
 <body class="bg-black text-white font-sans antialiased">
 
     <!-- NAVEGACIÓN FIJA (Header) -->
     <!-- Se aumentó la altura de la barra de navegación para acomodar el logo más grande -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm shadow-xl border-b border-pd-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 md:h-24"> <!-- Altura aumentada a h-24 (96px) en escritorio -->
+            <div class="flex items-center justify-between h-20 md:h-24">
+                <!-- Altura aumentada a h-24 (96px) en escritorio -->
                 <!-- Logo VOXENIX (Imagen real con transición suave) -->
                 <div class="flex items-center">
                     <a href="#" class="flex items-center group">
                         <!-- URL DE TU LOGO EN IMGUR -->
                         <!-- Tamaño aumentado: h-12 en móvil, h-20 en escritorio -->
-                        <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-12 md:h-20 transition duration-500 ease-in-out transform group-hover:scale-110 object-contain">
+                        <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo"
+                            class="h-12 md:h-20 transition duration-500 ease-in-out transform group-hover:scale-110 object-contain">
                     </a>
                 </div>
                 <!-- Menú de navegación -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Juego</a>
-                        <a href="#media" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Multimedia</a>
-                        <a href="#specs" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Requisitos</a>
+                        <a href="#about"
+                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Juego</a>
+                        <a href="#media"
+                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Multimedia</a>
+                        <a href="#specs"
+                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Requisitos</a>
                         <!-- Nuevo enlace directo a la compra -->
-                        <a href="#buy" class="text-pd-red hover:text-white px-3 py-2 rounded-md text-sm font-bold transition duration-300 uppercase hover:tracking-wider">Reservar</a>
+                        <a href="#buy"
+                            class="text-pd-red hover:text-white px-3 py-2 rounded-md text-sm font-bold transition duration-300 uppercase hover:tracking-wider">Reservar</a>
                     </div>
                 </div>
                 <!-- Botón de Wishlist / Móvil -->
-                <a href="#buy" class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-2 px-6 text-sm transition duration-300 ease-out transform hover:scale-105 cta-button shadow-lg hover:shadow-pd-red/50 text-center flex items-center">
+                <a href="#buy"
+                    class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-2 px-6 text-sm transition duration-300 ease-out transform hover:scale-105 cta-button shadow-lg hover:shadow-pd-red/50 text-center flex items-center">
                     <span class="md:hidden">Reservar</span>
                     <span class="hidden md:inline">RESERVAR AHORA</span>
                 </a>
@@ -91,11 +103,13 @@
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <!-- Botón Principal: Redirige a la sección de compra -->
-                <a href="#buy" class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button shadow-2xl hover:shadow-pd-red/50 text-center inline-block">
+                <a href="#buy"
+                    class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button shadow-2xl hover:shadow-pd-red/50 text-center inline-block">
                     RESERVAR AHORA
                 </a>
                 <!-- Botón Secundario: Redirige al video (#about) -->
-                <a href="#about" class="bg-transparent border-2 border-white hover:border-pd-red hover:text-pd-red text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button text-center inline-block">
+                <a href="#about"
+                    class="bg-transparent border-2 border-white hover:border-pd-red hover:text-pd-red text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button text-center inline-block">
                     VER TRAILER
                 </a>
             </div>
@@ -108,32 +122,47 @@
             <!-- Bloque de Texto -->
             <div class="order-2 md:order-1">
                 <h2 class="text-4xl font-bold uppercase mb-4 text-pd-red">El Terror Psicológico</h2>
-                <h3 class="text-2xl font-semibold text-white mb-6">¿Qué harías si el silencio fuera tu única defensa?</h3>
+                <h3 class="text-2xl font-semibold text-white mb-6">¿Qué harías si el silencio fuera tu única defensa?
+                </h3>
                 <p class="text-pd-grey mb-6 leading-relaxed">
-                    ProjectDusk no es solo un juego de terror de supervivencia; es una experiencia de inmersión total en la audición. Eres un investigador en un complejo subterráneo después de un misterioso incidente sonoro. Las criaturas que te acechan no ven, solo escuchan. Cada paso, cada respiración, cada fallo eléctrico puede ser el último.
+                    ProjectDusk no es solo un juego de terror de supervivencia; es una experiencia de inmersión total
+                    en la audición. Eres un investigador en un complejo subterráneo después de un misterioso incidente
+                    sonoro. Las criaturas que te acechan no ven, solo escuchan. Cada paso, cada respiración, cada fallo
+                    eléctrico puede ser el último.
                 </p>
                 <ul class="space-y-3 text-pd-grey">
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Inmersión Sonora 3D.</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>IA de escucha dinámica.</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Múltiples finales narrativos.</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>Inmersión Sonora 3D.</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>IA de escucha dinámica.</li>
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>Múltiples finales narrativos.</li>
                 </ul>
             </div>
-            
+
             <!-- VIDEO DE YOUTUBE EMBEBIDO -->
             <div class="order-1 md:order-2">
-                <div class="bg-pd-dark p-1 rounded-lg shadow-2xl border-2 border-pd-red/50 transition duration-500 hover:border-pd-red hover:shadow-pd-red/20 group">
+                <div
+                    class="bg-pd-dark p-1 rounded-lg shadow-2xl border-2 border-pd-red/50 transition duration-500 hover:border-pd-red hover:shadow-pd-red/20 group">
                     <div class="aspect-video bg-black w-full overflow-hidden rounded relative">
                         <!-- 
                             IMPORTANTE: Reemplaza 'M7lc1UVf-VE' por el ID de tu video de YouTube.
                             El ID es lo que está después de "v=" en la URL. 
                             Ejemplo: youtube.com/watch?v=M7lc1UVf-VE 
                         -->
-                        <iframe 
-                            class="w-full h-full" 
-                            src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=0&controls=1&rel=0" 
-                            title="Project Dusk Official Trailer" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        <iframe class="w-full h-full"
+                            src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=0&controls=1&rel=0"
+                            title="Project Dusk Official Trailer" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen>
                         </iframe>
                     </div>
@@ -145,28 +174,40 @@
     <!-- 3. SECTION: MEDIA (Galería) -->
     <section id="media" class="py-24 bg-pd-dark border-t border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-5xl font-extrabold uppercase mb-4">Galería de Horrores</h2>
+            <!-- Título de la Galería cambiado -->
+            <h2 class="text-5xl font-extrabold uppercase mb-4">Galería de ProjectDusk</h2>
             <p class="text-pd-grey mb-12">Capturas de pantalla del complejo Delta y las criaturas que lo habitan.</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery-container">
                 <!-- Tarjeta de Imagen 1 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
-                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Creature+Closeup" alt="Criatura en la oscuridad" class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                    onclick="openModal(0)">
+                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Creature+Closeup"
+                        alt="Criatura en la oscuridad"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
                 </div>
                 <!-- Tarjeta de Imagen 2 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
-                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Lab+Corridor" alt="Laboratorio abandonado" class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                    onclick="openModal(1)">
+                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Lab+Corridor"
+                        alt="Laboratorio abandonado"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
                 </div>
                 <!-- Tarjeta de Imagen 3 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
-                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Audio+System+Failure" alt="Fallo de sistema" class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                    onclick="openModal(2)">
+                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Audio+System+Failure"
+                        alt="Fallo de sistema"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
                 </div>
                 <!-- Tarjeta de Imagen 4 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
-                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=The+Abyss" alt="El Abismo" class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                    onclick="openModal(3)">
+                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=The+Abyss" alt="El Abismo"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
                 </div>
             </div>
@@ -177,10 +218,11 @@
     <section id="specs" class="py-24 bg-black">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-bold uppercase mb-12 text-pd-red">Requisitos del Sistema</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                 <!-- Columna: Mínimos -->
-                <div class="bg-pd-dark p-8 rounded-lg border border-gray-700 shadow-xl hover:border-gray-500 transition duration-300">
+                <div
+                    class="bg-pd-dark p-8 rounded-lg border border-gray-700 shadow-xl hover:border-gray-500 transition duration-300">
                     <h3 class="text-2xl font-semibold mb-4 text-pd-red">Mínimos</h3>
                     <ul class="space-y-3 text-pd-grey">
                         <li>**SO:** Windows 10 (64-bit)</li>
@@ -191,7 +233,8 @@
                     </ul>
                 </div>
                 <!-- Columna: Recomendados -->
-                <div class="bg-pd-dark p-8 rounded-lg border border-pd-red shadow-2xl hover:shadow-pd-red/20 transition duration-300">
+                <div
+                    class="bg-pd-dark p-8 rounded-lg border border-pd-red shadow-2xl hover:shadow-pd-red/20 transition duration-300">
                     <h3 class="text-2xl font-semibold mb-4 text-white">Recomendados</h3>
                     <ul class="space-y-3 text-white">
                         <li>**SO:** Windows 11 (64-bit)</li>
@@ -210,31 +253,37 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-5xl font-extrabold uppercase mb-6 tracking-tight">Sobrevive al Anochecer</h2>
             <p class="text-xl text-pd-grey mb-12">Reserva ahora y obtén acceso anticipado a la Beta Cerrada.</p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Opción 1: Steam -->
-                <a href="https://store.steampowered.com" target="_blank" class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                <a href="https://store.steampowered.com" target="_blank"
+                    class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">STEAM</h3>
                     <p class="text-pd-grey mb-6 text-sm">PC / Windows</p>
-                    <div class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
+                    <div
+                        class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
                         RESERVAR
                     </div>
                 </a>
 
                 <!-- Opción 2: Epic Games -->
-                <a href="https://store.epicgames.com" target="_blank" class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                <a href="https://store.epicgames.com" target="_blank"
+                    class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">EPIC GAMES</h3>
                     <p class="text-pd-grey mb-6 text-sm">PC / Windows</p>
-                    <div class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
+                    <div
+                        class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
                         RESERVAR
                     </div>
                 </a>
 
                 <!-- Opción 3: PlayStation -->
-                <a href="https://store.playstation.com" target="_blank" class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                <a href="https://store.playstation.com" target="_blank"
+                    class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
                     <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">PS5</h3>
                     <p class="text-pd-grey mb-6 text-sm">PlayStation Store</p>
-                    <div class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
+                    <div
+                        class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
                         RESERVAR
                     </div>
                 </a>
@@ -248,46 +297,152 @@
             <!-- Logo VOXENIX en el Footer -->
             <div class="flex justify-center mb-4">
                 <!-- Tamaño aumentado en el footer también: h-24 -->
-                <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-16 md:h-24 opacity-80 hover:opacity-100 transition duration-300 object-contain">
+                <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo"
+                    class="h-16 md:h-24 opacity-80 hover:opacity-100 transition duration-300 object-contain">
             </div>
             <p class="text-pd-red mb-8">El futuro del terror inmersivo</p>
-            
+
             <div class="flex justify-center space-x-6 mb-8">
                 <!-- Iconos de Redes Sociales -->
                 <a href="#" class="text-pd-grey hover:text-white transition duration-300 transform hover:scale-110">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM14.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM6.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM22.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM14.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM6.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5z"/></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M22.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM14.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM6.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM22.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM14.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM6.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5z" />
+                    </svg>
                 </a>
                 <a href="#" class="text-pd-grey hover:text-white transition duration-300 transform hover:scale-110">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.336 10.336a1.5 1.5 0 01-1.06-.44L9.842 7.842a1.5 1.5 0 01.378-2.122 1.5 1.5 0 012.122.378l4.434 4.434a1.5 1.5 0 01-.44 2.122zm-6.672 0a1.5 1.5 0 01-1.06-.44L3.842 7.842a1.5 1.5 0 01.378-2.122 1.5 1.5 0 012.122.378l4.434 4.434a1.5 1.5 0 01-.44 2.122zM12 18a6 6 0 100-12 6 6 0 000 12z"/></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.336 10.336a1.5 1.5 0 01-1.06-.44L9.842 7.842a1.5 1.5 0 01.378-2.122 1.5 1.5 0 012.122.378l4.434 4.434a1.5 1.5 0 01-.44 2.122zm-6.672 0a1.5 1.5 0 01-1.06-.44L3.842 7.842a1.5 1.5 0 01.378-2.122 1.5 1.5 0 012.122.378l4.434 4.434a1.5 1.5 0 01-.44 2.122zM12 18a6 6 0 100-12 6 6 0 000 12z" />
+                    </svg>
                 </a>
                 <a href="#" class="text-pd-grey hover:text-white transition duration-300 transform hover:scale-110">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.992 3.656 9.18 8.44 9.878v-7.85H7.728v-2.028h2.712V10.2c0-2.67 1.625-4.12 4.008-4.12 1.15 0 2.146.205 2.433.297v2.79H15.65c-1.31 0-1.564.623-1.564 1.534v1.896h3.125l-.406 3.992h-2.719v7.85C18.344 21.18 22 16.992 22 12 22 6.477 17.523 2 12 2z"/></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.477 2 2 6.477 2 12c0 4.992 3.656 9.18 8.44 9.878v-7.85H7.728v-2.028h2.712V10.2c0-2.67 1.625-4.12 4.008-4.12 1.15 0 2.146.205 2.433.297v2.79H15.65c-1.31 0-1.564.623-1.564 1.534v1.896h3.125l-.406 3.992h-2.719v7.85C18.344 21.18 22 16.992 22 12 22 6.477 17.523 2 12 2z" />
+                    </svg>
                 </a>
                 <!-- Discord -->
                 <a href="#" class="text-pd-grey hover:text-white transition duration-300 transform hover:scale-110">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10.894 15.717c.56.574 1.12.859 1.68.859s1.12-.285 1.68-.859c.535-.548.775-1.285.775-2.031s-.24-1.483-.775-2.031c-.56-.574-1.12-.859-1.68-.859s-1.12.285-1.68.859c-.535.548-.775 1.285-.775 2.031s.24 1.483.775 2.031zM12 2a10 10 0 00-9.98 9.697c.078 3.868 2.502 6.942 6.55 8.163l.412-.42c.08-.083.13-.18.15-.285.127-.58.118-1.168-.02-1.722-.11-.42-.31-.81-.59-1.157-.557-.69-.99-1.48-.99-2.348 0-.916.438-1.76 1.16-2.316.757-.588 1.69-.92 2.672-.92s1.915.332 2.672.92c.722.556 1.16 1.4 1.16 2.316 0 .868-.433 1.658-.99 2.348-.28.347-.48.737-.59 1.157-.138.554-.147 1.142-.02 1.722.02.105.07.202.15.285l.412.42c4.048-1.22 6.472-4.295 6.55-8.163A10 10 0 0012 2z"/></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M10.894 15.717c.56.574 1.12.859 1.68.859s1.12-.285 1.68-.859c.535-.548.775-1.285.775-2.031s-.24-1.483-.775-2.031c-.56-.574-1.12-.859-1.68-.859s-1.12.285-1.68.859c-.535.548-.775 1.285-.775 2.031s.24 1.483.775 2.031zM12 2a10 10 0 00-9.98 9.697c.078 3.868 2.502 6.942 6.55 8.163l.412-.42c.08-.083.13-.18.15-.285.127-.58.118-1.168-.02-1.722-.11-.42-.31-.81-.59-1.157-.557-.69-.99-1.48-.99-2.348 0-.916.438-1.76 1.16-2.316.757-.588 1.69-.92 2.672-.92s1.915.332 2.672.92c.722.556 1.16 1.4 1.16 2.316 0 .868-.433 1.658-.99 2.348-.28.347-.48.737-.59 1.157-.138.554-.147 1.142-.02 1.722.02.105.07.202.15.285l.412.42c4.048-1.22 6.472-4.295 6.55-8.163A10 10 0 0012 2z" />
+                    </svg>
                 </a>
             </div>
-            
+
             <p class="text-xs text-pd-grey">
-                &copy; 2025 VOXENIX Studios. Todos los derechos reservados. ProjectDusk y los logotipos asociados son marcas registradas de VOXENIX Studios.
+                &copy; 2025 VOXENIX Studios. Todos los derechos reservados. ProjectDusk y los logotipos asociados son
+                marcas registradas de VOXENIX Studios.
             </p>
         </div>
     </footer>
 
-    <!-- JavaScript para el efecto de scroll -->
+    <!-- MODAL DE GALERÍA (Se añade al final del body) -->
+    <div id="gallery-modal"
+        class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-pd-red z-50 p-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <div class="relative w-full max-w-5xl max-h-[85vh] flex items-center justify-center">
+            <!-- Imagen principal del modal -->
+            <img id="modal-image" src="" alt="Imagen de galería" class="max-w-full max-h-[85vh] object-contain">
+
+            <!-- Botón Anterior -->
+            <button onclick="changeImage(-1)"
+                class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+
+            <!-- Botón Siguiente -->
+            <button onclick="changeImage(1)"
+                class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white">
+            <span id="image-counter"></span>
+        </div>
+    </div>
+
+    <!-- JavaScript para el efecto de scroll y la galería -->
     <script>
-        document.addEventListener('scroll', function() {
+        // Efecto de scroll en el hero
+        document.addEventListener('scroll', function () {
             const hero = document.querySelector('.hero-background');
             const scrollPos = window.scrollY;
 
-            // Oscurece la imagen del hero section a medida que el usuario baja
             if (scrollPos < window.innerHeight / 2) {
                 hero.style.filter = `grayscale(${100 - (scrollPos / (window.innerHeight / 2)) * 100}%)`;
             } else {
                 hero.style.filter = `grayscale(0%)`;
             }
         });
+
+        // --- Lógica de la Galería Modal ---
+        const modal = document.getElementById('gallery-modal');
+        const modalImage = document.getElementById('modal-image');
+        const imageCounter = document.getElementById('image-counter');
+        // Obtener todas las imágenes de la galería
+        const galleryImages = Array.from(document.querySelectorAll('.gallery-image')).map(img => img.src);
+        let currentImageIndex = 0;
+
+        function openModal(index) {
+            currentImageIndex = index;
+            updateModalImage();
+            modal.classList.remove('hidden');
+            // Pequeño retraso para permitir la transición de opacidad
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+            document.body.style.overflow = 'hidden'; // Evitar scroll en el body
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            // Esperar a que termine la transición para ocultar
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restaurar scroll
+            }, 300);
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            // Bucle infinito de imágenes
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            modalImage.src = galleryImages[currentImageIndex];
+            imageCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        // Cerrar modal al hacer clic fuera de la imagen
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
     </script>
 </body>
+
 </html>
