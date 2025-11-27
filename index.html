@@ -54,16 +54,13 @@
 <body class="bg-black text-white font-sans antialiased">
 
     <!-- NAVEGACIÓN FIJA (Header) -->
-    <!-- Se aumentó la altura de la barra de navegación para acomodar el logo más grande -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm shadow-xl border-b border-pd-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 md:h-24">
-                <!-- Altura aumentada a h-24 (96px) en escritorio -->
-                <!-- Logo VOXENIX (Imagen real con transición suave) -->
+                <!-- Altura aumentada para acomodar el logo -->
                 <div class="flex items-center">
                     <a href="#" class="flex items-center group">
-                        <!-- URL DE TU LOGO EN IMGUR -->
-                        <!-- Tamaño aumentado: h-12 en móvil, h-20 en escritorio -->
+                        <!-- URL DEL LOGO EN IMGUR -->
                         <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo"
                             class="h-12 md:h-20 transition duration-500 ease-in-out transform group-hover:scale-110 object-contain">
                     </a>
@@ -77,9 +74,11 @@
                             class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Multimedia</a>
                         <a href="#features"
                             class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Innovación</a>
-                        <!-- Nuevo Link al Estudio (Importante para Abylight) -->
                         <a href="#studio"
                             class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Sobre Nosotros</a>
+                        <!-- Nuevo Link a Noticias -->
+                        <a href="#news"
+                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Noticias</a>
                         <!-- Nuevo enlace directo a la compra -->
                         <a href="#buy"
                             class="text-pd-red hover:text-white px-3 py-2 rounded-md text-sm font-bold transition duration-300 uppercase hover:tracking-wider">Reservar</a>
@@ -105,12 +104,10 @@
                 El Sonido del Miedo es tu único compañero
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <!-- Botón Principal: Redirige a la sección de compra -->
                 <a href="#buy"
                     class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button shadow-2xl hover:shadow-pd-red/50 text-center inline-block">
                     RESERVAR AHORA
                 </a>
-                <!-- Botón Secundario: Redirige al video (#about) -->
                 <a href="#about"
                     class="bg-transparent border-2 border-white hover:border-pd-red hover:text-pd-red text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button text-center inline-block">
                     VER TRAILER
@@ -294,7 +291,7 @@
         </div>
     </section>
 
-    <!-- 6. NUEVA SECCIÓN: INNOVACIÓN MECÁNICA (Actualizada: Ecolocación + Tablet) -->
+    <!-- 6. SECCIÓN: INNOVACIÓN MECÁNICA (Actualizada: Ecolocación + Tablet) -->
     <section id="features" class="py-24 bg-black relative overflow-hidden">
         <!-- Elemento decorativo de fondo -->
         <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-pd-red/10 to-transparent pointer-events-none"></div>
@@ -371,7 +368,58 @@
         </div>
     </section>
 
-    <!-- 7. SECCIÓN: COMPRA / RESERVA -->
+    <!-- 7. NUEVA SECCIÓN: NOTICIAS -->
+    <section id="news" class="py-24 bg-pd-dark border-t border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold uppercase mb-4 tracking-tight">NOTICIAS Y ACTUALIZACIONES</h2>
+                <p class="text-xl text-pd-grey">Mantente al día con el desarrollo de ProjectDusk.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Noticia 1 -->
+                <div class="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-pd-red transition duration-300 group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://placehold.co/400x250/1a1a1a/444444?text=Beta+Cerrada');"></div>
+                    <div class="p-6">
+                        <div class="text-pd-red text-xs font-bold uppercase mb-2">Anuncio</div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-pd-red transition">Registro para la Beta Cerrada</h3>
+                        <p class="text-pd-grey text-sm mb-4">Estamos buscando a los primeros valientes para probar las mecánicas de ecolocación. ¡Regístrate ahora!</p>
+                        <a href="#" class="text-white font-semibold text-sm hover:text-pd-red transition flex items-center">
+                            LEER MÁS <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Noticia 2 -->
+                <div class="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-pd-red transition duration-300 group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://placehold.co/400x250/1a1a1a/444444?text=Devlog+Audio');"></div>
+                    <div class="p-6">
+                        <div class="text-pd-red text-xs font-bold uppercase mb-2">Devlog #04</div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-pd-red transition">Diseñando el Sonido del Miedo</h3>
+                        <p class="text-pd-grey text-sm mb-4">Nuestro director de audio explica cómo grabamos sonidos binaurales reales en edificios abandonados.</p>
+                        <a href="#" class="text-white font-semibold text-sm hover:text-pd-red transition flex items-center">
+                            LEER MÁS <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Noticia 3 -->
+                <div class="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-pd-red transition duration-300 group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://placehold.co/400x250/1a1a1a/444444?text=Nueva+Criatura');"></div>
+                    <div class="p-6">
+                        <div class="text-pd-red text-xs font-bold uppercase mb-2">Lore</div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-pd-red transition">Archivo del Caso: El Acechador</h3>
+                        <p class="text-pd-grey text-sm mb-4">Se han recuperado documentos clasificados sobre la entidad conocida como "El Acechador".</p>
+                        <a href="#" class="text-white font-semibold text-sm hover:text-pd-red transition flex items-center">
+                            LEER MÁS <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. SECCIÓN: COMPRA / RESERVA -->
     <section id="buy" class="py-24 bg-gradient-to-t from-pd-red/20 to-black border-t border-pd-dark">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-5xl font-extrabold uppercase mb-6 tracking-tight">Sobrevive al Anochecer</h2>
@@ -414,7 +462,7 @@
         </div>
     </section>
 
-    <!-- 8. FOOTER (VOXENIX Studios) -->
+    <!-- 9. FOOTER (VOXENIX Studios) -->
     <footer id="community" class="py-12 bg-pd-dark border-t border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Logo VOXENIX en el Footer -->
