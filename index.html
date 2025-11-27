@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth"> <!-- Agregado scroll-smooth para desplazamiento suave -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +19,6 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        // Puedes usar una fuente más impactante para títulos grandes si la cargas (ej. Oswald)
-                        // title: ['Oswald', 'sans-serif'], 
                     },
                 }
             }
@@ -39,19 +37,10 @@
         }
 
         .cta-button {
+            /* Mantiene la forma biselada de los botones */
             clip-path: polygon(5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%);
         }
         
-        /* Efecto de 'pulsar' en el logo - emulando la onda sonora */
-        @keyframes pulse-red {
-            0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 51, 0.5), 0 0 20px rgba(255, 0, 51, 0.2); }
-            50% { box-shadow: 0 0 15px rgba(255, 0, 51, 0.8), 0 0 30px rgba(255, 0, 51, 0.4); }
-        }
-        .logo-pulse {
-            animation: pulse-red 2s infinite ease-in-out;
-            border-radius: 4px; /* Simula el contenedor del logo */
-        }
-
         /* Ocultar el scroll horizontal en dispositivos móviles */
         body { overflow-x: hidden; }
 
@@ -63,26 +52,28 @@
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm shadow-xl border-b border-pd-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <!-- Logo VOXENIX (Texto + Simulación de Pulso) -->
+                <!-- Logo VOXENIX (Imagen real con transición suave) -->
                 <div class="flex items-center">
-                    <div id="logo-placeholder" class="text-xl font-bold uppercase tracking-widest text-white p-1 logo-pulse">
-                        VOXENIX Studios
-                    </div>
+                    <a href="#" class="flex items-center group">
+                        <!-- URL DE TU LOGO EN IMGUR -->
+                        <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-8 md:h-10 transition duration-500 ease-in-out transform group-hover:scale-110">
+                    </a>
                 </div>
                 <!-- Menú de navegación -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200 uppercase">Juego</a>
-                        <a href="#media" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200 uppercase">Multimedia</a>
-                        <a href="#specs" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200 uppercase">Requisitos</a>
-                        <a href="#community" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200 uppercase">Comunidad</a>
+                        <a href="#about" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Juego</a>
+                        <a href="#media" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Multimedia</a>
+                        <a href="#specs" class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Requisitos</a>
+                        <!-- Nuevo enlace directo a la compra -->
+                        <a href="#buy" class="text-pd-red hover:text-white px-3 py-2 rounded-md text-sm font-bold transition duration-300 uppercase hover:tracking-wider">Reservar</a>
                     </div>
                 </div>
                 <!-- Botón de Wishlist / Móvil -->
-                <button class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-2 px-6 text-sm transition duration-300 cta-button">
-                    <span class="md:hidden">Wishlist</span>
-                    <span class="hidden md:inline">AÑADIR A WISHLIST</span>
-                </button>
+                <a href="#buy" class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-2 px-6 text-sm transition duration-300 ease-out transform hover:scale-105 cta-button shadow-lg hover:shadow-pd-red/50 text-center flex items-center">
+                    <span class="md:hidden">Reservar</span>
+                    <span class="hidden md:inline">RESERVAR AHORA</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -97,17 +88,19 @@
                 El Sonido del Miedo es tu único compañero
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <button class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-3 px-8 text-lg transition duration-300 cta-button shadow-2xl">
+                <!-- Botón Principal: Redirige a la sección de compra -->
+                <a href="#buy" class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button shadow-2xl hover:shadow-pd-red/50 text-center inline-block">
                     RESERVAR AHORA
-                </button>
-                <button class="bg-transparent border-2 border-white hover:border-pd-red text-white font-bold py-3 px-8 text-lg transition duration-300 cta-button">
+                </a>
+                <!-- Botón Secundario: Redirige al video (#about) -->
+                <a href="#about" class="bg-transparent border-2 border-white hover:border-pd-red hover:text-pd-red text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button text-center inline-block">
                     VER TRAILER
-                </button>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- 2. SECTION: SOBRE EL JUEGO (Acerca de) -->
+    <!-- 2. SECTION: SOBRE EL JUEGO Y TRAILER -->
     <section id="about" class="py-24 bg-black">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
             <!-- Bloque de Texto -->
@@ -123,11 +116,24 @@
                     <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Múltiples finales narrativos.</li>
                 </ul>
             </div>
-            <!-- Placeholder de Imagen/Trailer -->
+            
+            <!-- VIDEO DE YOUTUBE EMBEBIDO -->
             <div class="order-1 md:order-2">
-                <div class="bg-pd-dark p-6 rounded-lg shadow-2xl border-2 border-pd-red/50">
-                    <div class="aspect-video bg-gray-900 flex items-center justify-center text-lg text-pd-grey font-mono">
-                        [ESPACIO PARA TRAILER DE YOUTUBE O VIDEO EMBEBIDO]
+                <div class="bg-pd-dark p-1 rounded-lg shadow-2xl border-2 border-pd-red/50 transition duration-500 hover:border-pd-red hover:shadow-pd-red/20 group">
+                    <div class="aspect-video bg-black w-full overflow-hidden rounded relative">
+                        <!-- 
+                            IMPORTANTE: Reemplaza 'M7lc1UVf-VE' por el ID de tu video de YouTube.
+                            El ID es lo que está después de "v=" en la URL. 
+                            Ejemplo: youtube.com/watch?v=M7lc1UVf-VE 
+                        -->
+                        <iframe 
+                            class="w-full h-full" 
+                            src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=0&controls=1&rel=0" 
+                            title="Project Dusk Official Trailer" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -142,29 +148,26 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <!-- Tarjeta de Imagen 1 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Creature+Closeup" alt="Criatura en la oscuridad" class="w-full h-auto transform group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-500"></div>
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Creature+Closeup" alt="Criatura en la oscuridad" class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
                 </div>
                 <!-- Tarjeta de Imagen 2 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Lab+Corridor" alt="Laboratorio abandonado" class="w-full h-auto transform group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-500"></div>
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Lab+Corridor" alt="Laboratorio abandonado" class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
                 </div>
                 <!-- Tarjeta de Imagen 3 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Audio+System+Failure" alt="Fallo de sistema" class="w-full h-auto transform group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-500"></div>
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=Audio+System+Failure" alt="Fallo de sistema" class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
                 </div>
                 <!-- Tarjeta de Imagen 4 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg">
-                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=The+Abyss" alt="El Abismo" class="w-full h-auto transform group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-500"></div>
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="https://placehold.co/400x225/1a1a1a/444444?text=The+Abyss" alt="El Abismo" class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
                 </div>
             </div>
-            <button class="mt-12 bg-transparent border-2 border-pd-red hover:bg-pd-red text-white font-bold py-3 px-8 text-md transition duration-300 cta-button">
-                VER MÁS CAPTURAS
-            </button>
         </div>
     </section>
 
@@ -175,7 +178,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                 <!-- Columna: Mínimos -->
-                <div class="bg-pd-dark p-8 rounded-lg border border-gray-700 shadow-xl">
+                <div class="bg-pd-dark p-8 rounded-lg border border-gray-700 shadow-xl hover:border-gray-500 transition duration-300">
                     <h3 class="text-2xl font-semibold mb-4 text-pd-red">Mínimos</h3>
                     <ul class="space-y-3 text-pd-grey">
                         <li>**SO:** Windows 10 (64-bit)</li>
@@ -183,11 +186,10 @@
                         <li>**RAM:** 8 GB</li>
                         <li>**GPU:** NVIDIA GeForce GTX 1060 / AMD Radeon RX 580</li>
                         <li>**Almacenamiento:** 50 GB de espacio disponible</li>
-                        <li>**Sonido:** Tarjeta de sonido compatible con Audio 3D (Recomendado)</li>
                     </ul>
                 </div>
                 <!-- Columna: Recomendados -->
-                <div class="bg-pd-dark p-8 rounded-lg border border-pd-red shadow-2xl">
+                <div class="bg-pd-dark p-8 rounded-lg border border-pd-red shadow-2xl hover:shadow-pd-red/20 transition duration-300">
                     <h3 class="text-2xl font-semibold mb-4 text-white">Recomendados</h3>
                     <ul class="space-y-3 text-white">
                         <li>**SO:** Windows 11 (64-bit)</li>
@@ -195,37 +197,72 @@
                         <li>**RAM:** 16 GB</li>
                         <li>**GPU:** NVIDIA GeForce RTX 3070 / AMD Radeon RX 6700 XT</li>
                         <li>**Almacenamiento:** SSD, 50 GB de espacio disponible</li>
-                        <li>**Sonido:** Auriculares de alta calidad para Audio Espacial</li>
                     </ul>
                 </div>
             </div>
-            
-            <p class="text-pd-grey text-sm mt-12">
-                *Los requisitos están sujetos a cambios. Se recomienda una conexión a Internet para actualizaciones.
-            </p>
         </div>
     </section>
 
-    <!-- 5. FOOTER (VOXENIX Studios) -->
+    <!-- 5. NUEVA SECCIÓN: COMPRA / RESERVA -->
+    <section id="buy" class="py-24 bg-gradient-to-t from-pd-red/20 to-black border-t border-pd-dark">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-extrabold uppercase mb-6 tracking-tight">Sobrevive al Anochecer</h2>
+            <p class="text-xl text-pd-grey mb-12">Reserva ahora y obtén acceso anticipado a la Beta Cerrada.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Opción 1: Steam -->
+                <a href="https://store.steampowered.com" target="_blank" class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                    <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">STEAM</h3>
+                    <p class="text-pd-grey mb-6 text-sm">PC / Windows</p>
+                    <div class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
+                        RESERVAR
+                    </div>
+                </a>
+
+                <!-- Opción 2: Epic Games -->
+                <a href="https://store.epicgames.com" target="_blank" class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                    <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">EPIC GAMES</h3>
+                    <p class="text-pd-grey mb-6 text-sm">PC / Windows</p>
+                    <div class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
+                        RESERVAR
+                    </div>
+                </a>
+
+                <!-- Opción 3: PlayStation -->
+                <a href="https://store.playstation.com" target="_blank" class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                    <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">PS5</h3>
+                    <p class="text-pd-grey mb-6 text-sm">PlayStation Store</p>
+                    <div class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
+                        RESERVAR
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER (VOXENIX Studios) -->
     <footer id="community" class="py-12 bg-pd-dark border-t border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h4 class="text-3xl font-bold uppercase mb-2 text-white">VOXENIX Studios</h4>
+            <!-- Logo VOXENIX en el Footer -->
+            <div class="flex justify-center mb-4">
+                <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-10 md:h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
             <p class="text-pd-red mb-8">El futuro del terror inmersivo</p>
             
             <div class="flex justify-center space-x-6 mb-8">
-                <!-- Iconos de Redes Sociales (ejemplos con SVG para simplicidad) -->
-                <a href="#" class="text-pd-grey hover:text-white transition duration-300">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM14.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM6.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM22.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM14.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM6.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5z"/></svg> <!-- Ejemplo: Twitter/X -->
+                <!-- Iconos de Redes Sociales -->
+                <a href="#" class="text-pd-grey hover:text-white transition duration-300 transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM14.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM6.25 6.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM22.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM14.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5zM6.25 14.425a1.25 1.25 0 00-1.25-1.25h-2.5a1.25 1.25 0 00-1.25 1.25v2.5a1.25 1.25 0 001.25 1.25h2.5a1.25 1.25 0 001.25-1.25v-2.5z"/></svg>
                 </a>
-                <a href="#" class="text-pd-grey hover:text-white transition duration-300">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.336 10.336a1.5 1.5 0 01-1.06-.44L9.842 7.842a1.5 1.5 0 01.378-2.122 1.5 1.5 0 012.122.378l4.434 4.434a1.5 1.5 0 01-.44 2.122zm-6.672 0a1.5 1.5 0 01-1.06-.44L3.842 7.842a1.5 1.5 0 01.378-2.122 1.5 1.5 0 012.122.378l4.434 4.434a1.5 1.5 0 01-.44 2.122zM12 18a6 6 0 100-12 6 6 0 000 12z"/></svg> <!-- Ejemplo: YouTube -->
+                <a href="#" class="text-pd-grey hover:text-white transition duration-300 transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.336 10.336a1.5 1.5 0 01-1.06-.44L9.842 7.842a1.5 1.5 0 01.378-2.122 1.5 1.5 0 012.122.378l4.434 4.434a1.5 1.5 0 01-.44 2.122zm-6.672 0a1.5 1.5 0 01-1.06-.44L3.842 7.842a1.5 1.5 0 01.378-2.122 1.5 1.5 0 012.122.378l4.434 4.434a1.5 1.5 0 01-.44 2.122zM12 18a6 6 0 100-12 6 6 0 000 12z"/></svg>
                 </a>
-                <a href="#" class="text-pd-grey hover:text-white transition duration-300">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.992 3.656 9.18 8.44 9.878v-7.85H7.728v-2.028h2.712V10.2c0-2.67 1.625-4.12 4.008-4.12 1.15 0 2.146.205 2.433.297v2.79H15.65c-1.31 0-1.564.623-1.564 1.534v1.896h3.125l-.406 3.992h-2.719v7.85C18.344 21.18 22 16.992 22 12 22 6.477 17.523 2 12 2z"/></svg> <!-- Ejemplo: Facebook -->
+                <a href="#" class="text-pd-grey hover:text-white transition duration-300 transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.992 3.656 9.18 8.44 9.878v-7.85H7.728v-2.028h2.712V10.2c0-2.67 1.625-4.12 4.008-4.12 1.15 0 2.146.205 2.433.297v2.79H15.65c-1.31 0-1.564.623-1.564 1.534v1.896h3.125l-.406 3.992h-2.719v7.85C18.344 21.18 22 16.992 22 12 22 6.477 17.523 2 12 2z"/></svg>
                 </a>
-                <!-- Discord (Esencial para videojuegos) -->
-                 <a href="#" class="text-pd-grey hover:text-white transition duration-300">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.894 15.717c.56.574 1.12.859 1.68.859s1.12-.285 1.68-.859c.535-.548.775-1.285.775-2.031s-.24-1.483-.775-2.031c-.56-.574-1.12-.859-1.68-.859s-1.12.285-1.68.859c-.535.548-.775 1.285-.775 2.031s.24 1.483.775 2.031zM12 2a10 10 0 00-9.98 9.697c.078 3.868 2.502 6.942 6.55 8.163l.412-.42c.08-.083.13-.18.15-.285.127-.58.118-1.168-.02-1.722-.11-.42-.31-.81-.59-1.157-.557-.69-.99-1.48-.99-2.348 0-.916.438-1.76 1.16-2.316.757-.588 1.69-.92 2.672-.92s1.915.332 2.672.92c.722.556 1.16 1.4 1.16 2.316 0 .868-.433 1.658-.99 2.348-.28.347-.48.737-.59 1.157-.138.554-.147 1.142-.02 1.722.02.105.07.202.15.285l.412.42c4.048-1.22 6.472-4.295 6.55-8.163A10 10 0 0012 2z"/></svg>
+                <!-- Discord -->
+                <a href="#" class="text-pd-grey hover:text-white transition duration-300 transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10.894 15.717c.56.574 1.12.859 1.68.859s1.12-.285 1.68-.859c.535-.548.775-1.285.775-2.031s-.24-1.483-.775-2.031c-.56-.574-1.12-.859-1.68-.859s-1.12.285-1.68.859c-.535.548-.775 1.285-.775 2.031s.24 1.483.775 2.031zM12 2a10 10 0 00-9.98 9.697c.078 3.868 2.502 6.942 6.55 8.163l.412-.42c.08-.083.13-.18.15-.285.127-.58.118-1.168-.02-1.722-.11-.42-.31-.81-.59-1.157-.557-.69-.99-1.48-.99-2.348 0-.916.438-1.76 1.16-2.316.757-.588 1.69-.92 2.672-.92s1.915.332 2.672.92c.722.556 1.16 1.4 1.16 2.316 0 .868-.433 1.658-.99 2.348-.28.347-.48.737-.59 1.157-.138.554-.147 1.142-.02 1.722.02.105.07.202.15.285l.412.42c4.048-1.22 6.472-4.295 6.55-8.163A10 10 0 0012 2z"/></svg>
                 </a>
             </div>
             
@@ -235,7 +272,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript para el efecto de scroll (Opcional) -->
+    <!-- JavaScript para el efecto de scroll -->
     <script>
         document.addEventListener('scroll', function() {
             const hero = document.querySelector('.hero-background');
@@ -243,24 +280,11 @@
 
             // Oscurece la imagen del hero section a medida que el usuario baja
             if (scrollPos < window.innerHeight / 2) {
-                // Mantiene el filtro si no se ha hecho scroll profundo
                 hero.style.filter = `grayscale(${100 - (scrollPos / (window.innerHeight / 2)) * 100}%)`;
             } else {
-                hero.style.filter = `grayscale(0%)`; // El filtro se quita para mostrar el contenido a color (simulación)
+                hero.style.filter = `grayscale(0%)`;
             }
         });
-        
-        // Simular que el logo es una imagen real de fondo transparente
-        // Necesitas subir tu logo a Canva y usar una URL pública si quieres que se vea real
-        document.addEventListener('DOMContentLoaded', () => {
-            const logoPlaceholder = document.getElementById('logo-placeholder');
-            
-            // Reemplaza el texto por una imagen del logo si tuvieras la URL (opcional)
-            // logoPlaceholder.innerHTML = '<img src="URL_AQUI/VOXENIX_STUDIOS.png" alt="VOXENIX Studios Logo" class="h-8">';
-            logoPlaceholder.classList.remove('logo-pulse');
-            logoPlaceholder.style.backgroundColor = 'transparent';
-        });
-
     </script>
 </body>
 </html>
