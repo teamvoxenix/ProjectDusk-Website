@@ -33,10 +33,20 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), #000000 75%), url('https://placehold.co/1920x1080/000000/333333?text=SCENE+FROM+PROJECT+DUSK');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            height: 100vh; /* Altura completa en desktop */
+            min-height: 600px; /* Altura mínima para evitar cortes en pantallas muy pequeñas */
             filter: grayscale(100%);
             /* Efecto visual oscuro */
             transition: filter 1s;
+        }
+        
+        /* Ajuste de altura para móviles */
+        @media (max-width: 768px) {
+            .hero-background {
+                height: 85vh; /* Un poco menos en móvil para ver que hay más contenido */
+                min-height: 500px;
+                background-attachment: scroll; /* Mejor rendimiento en móviles */
+            }
         }
 
         .cta-button {
@@ -66,77 +76,99 @@
 <body class="bg-black text-white font-sans antialiased">
 
     <!-- NAVEGACIÓN FIJA (Header) -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm shadow-xl border-b border-pd-dark">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md shadow-xl border-b border-pd-dark transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 md:h-24">
+            <div class="flex items-center justify-between h-16 md:h-24">
                 <!-- Altura aumentada para acomodar el logo -->
-                <div class="flex items-center">
+                <div class="flex items-center flex-shrink-0">
                     <a href="#" class="flex items-center group">
                         <!-- URL DEL LOGO EN IMGUR -->
                         <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo"
-                            class="h-12 md:h-20 transition duration-500 ease-in-out transform group-hover:scale-110 object-contain">
+                            class="h-8 md:h-12 lg:h-16 transition duration-500 ease-in-out transform group-hover:scale-105 object-contain">
                     </a>
                 </div>
-                <!-- Menú de navegación -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
+                
+                <!-- Menú de navegación Desktop -->
+                <div class="hidden lg:block ml-auto">
+                    <div class="ml-10 flex items-baseline space-x-6">
                         <a href="#about"
-                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Historia</a>
+                            class="text-pd-grey hover:text-white px-2 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider hover:text-pd-red">Historia</a>
                         <a href="#media"
-                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Multimedia</a>
+                            class="text-pd-grey hover:text-white px-2 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider hover:text-pd-red">Multimedia</a>
                         <a href="#features"
-                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Innovación</a>
+                            class="text-pd-grey hover:text-white px-2 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider hover:text-pd-red">Innovación</a>
                         <a href="#studio"
-                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Sobre Nosotros</a>
-                        <!-- ENLACE DE NOTICIAS AÑADIDO AQUÍ -->
+                            class="text-pd-grey hover:text-white px-2 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider hover:text-pd-red">Sobre Nosotros</a>
+                        <!-- ENLACE DE NOTICIAS -->
                         <a href="#news"
-                            class="text-pd-grey hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider">Noticias</a>
+                            class="text-pd-grey hover:text-white px-2 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider hover:text-pd-red">Noticias</a>
                         
+                        <!-- Botón Reservar Ahora (Desktop) -->
                         <a href="#buy"
-                            class="text-pd-red hover:text-white px-3 py-2 rounded-md text-sm font-bold transition duration-300 uppercase hover:tracking-wider">Reservar</a>
+                            class="ml-4 bg-pd-red hover:bg-pd-pulse text-white px-5 py-2 rounded-sm text-sm font-bold transition duration-300 uppercase tracking-wide transform hover:scale-105 shadow-lg shadow-pd-red/20 cta-button">
+                            RESERVAR AHORA
+                        </a>
                     </div>
                 </div>
-                <!-- Botón de Wishlist / Móvil -->
-                <a href="#buy"
-                    class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-2 px-6 text-sm transition duration-300 ease-out transform hover:scale-105 cta-button shadow-lg hover:shadow-pd-red/50 text-center flex items-center">
-                    <span class="md:hidden">Reservar</span>
-                    <span class="hidden md:inline">RESERVAR AHORA</span>
-                </a>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex lg:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white focus:outline-none focus:text-white p-2">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil (Desplegable) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-black/95 backdrop-blur-xl border-b border-pd-red/20 absolute w-full left-0 top-full shadow-2xl transition-all duration-300 ease-in-out">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="#about" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-pd-red hover:bg-white/5 px-3 py-4 rounded-md text-base font-medium uppercase tracking-wider border-b border-white/5">Historia</a>
+                <a href="#media" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-pd-red hover:bg-white/5 px-3 py-4 rounded-md text-base font-medium uppercase tracking-wider border-b border-white/5">Multimedia</a>
+                <a href="#features" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-pd-red hover:bg-white/5 px-3 py-4 rounded-md text-base font-medium uppercase tracking-wider border-b border-white/5">Innovación</a>
+                <a href="#studio" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-pd-red hover:bg-white/5 px-3 py-4 rounded-md text-base font-medium uppercase tracking-wider border-b border-white/5">Sobre Nosotros</a>
+                <a href="#news" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-pd-red hover:bg-white/5 px-3 py-4 rounded-md text-base font-medium uppercase tracking-wider border-b border-white/5">Noticias</a>
+                <a href="#buy" onclick="toggleMobileMenu()" class="block text-white bg-pd-red hover:bg-pd-pulse px-3 py-4 rounded-md text-base font-bold uppercase tracking-wider mt-4 mx-4 shadow-lg shadow-pd-red/20">RESERVAR AHORA</a>
             </div>
         </div>
     </nav>
 
     <!-- 1. HERO SECTION (Pantalla Completa) -->
-    <header class="hero-background flex items-end pb-20 md:pb-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-            <h1 class="text-7xl md:text-8xl font-extrabold uppercase mb-4 tracking-tight">
-                PROJECT DUSK
-            </h1>
-            <p class="text-pd-red text-xl md:text-2xl font-semibold uppercase tracking-widest mb-8">
-                El Sonido del Miedo es tu único compañero
-            </p>
-            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#buy"
-                    class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button shadow-2xl hover:shadow-pd-red/50 text-center inline-block">
-                    RESERVAR AHORA
-                </a>
-                <a href="#about"
-                    class="bg-transparent border-2 border-white hover:border-pd-red hover:text-pd-red text-white font-bold py-3 px-8 text-lg transition duration-300 ease-out transform hover:scale-105 cta-button text-center inline-block">
-                    VER TRAILER
-                </a>
+    <header class="hero-background flex items-end pb-12 md:pb-20 lg:pb-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
+            <div class="max-w-4xl">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold uppercase mb-2 md:mb-4 tracking-tighter leading-none text-white drop-shadow-lg">
+                    PROJECT DUSK
+                </h1>
+                <p class="text-pd-red text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold uppercase tracking-widest mb-6 md:mb-10 drop-shadow-md">
+                    El Sonido del Miedo es tu único compañero
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+                    <a href="#buy"
+                        class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-3 md:py-4 px-8 md:px-10 text-base md:text-xl transition duration-300 ease-out transform hover:scale-105 cta-button shadow-2xl hover:shadow-pd-red/50 text-center inline-block w-full sm:w-auto">
+                        RESERVAR AHORA
+                    </a>
+                    <a href="#about"
+                        class="bg-transparent border-2 border-white hover:border-pd-red hover:text-pd-red text-white font-bold py-3 md:py-4 px-8 md:px-10 text-base md:text-xl transition duration-300 ease-out transform hover:scale-105 cta-button text-center inline-block w-full sm:w-auto backdrop-blur-sm">
+                        VER TRAILER
+                    </a>
+                </div>
             </div>
         </div>
+        <!-- Gradiente inferior para mejorar legibilidad -->
+        <div class="absolute bottom-0 left-0 w-full h-32 md:h-64 bg-gradient-to-t from-black to-transparent z-0"></div>
     </header>
 
     <!-- 2. SECTION: HISTORIA Y TRAILER -->
-    <section id="about" class="py-24 bg-black">
+    <section id="about" class="py-16 md:py-24 bg-black relative z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
             <!-- Bloque de Texto -->
             <div class="order-2 md:order-1">
-                <h2 class="text-4xl font-bold uppercase mb-4 text-pd-red">LA FRECUENCIA MUERTA</h2>
-                <h3 class="text-2xl font-semibold text-white mb-6">La última llamada del Asilo Dusk no fue una petición
-                    de ayuda. Fue una trampa.</h3>
-                <p class="text-pd-grey mb-6 leading-relaxed text-lg">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold uppercase mb-4 text-pd-red leading-tight">LA FRECUENCIA MUERTA</h2>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-6 leading-snug">La última llamada del Asilo Dusk no fue una petición de ayuda. Fue una trampa.</h3>
+                <p class="text-pd-grey mb-6 leading-relaxed text-base md:text-lg">
                     Eres el investigador privado <strong>Elias Thorne</strong>. Durante años, el expediente del Asilo
                     Dusk ha acumulado polvo en tu escritorio, un monumento a los desaparecidos que la policía decidió
                     olvidar. Pero anoche, el silencio se rompió. Una transmisión errática, cargada de estática y gritos
@@ -148,18 +180,18 @@
                     aquella última noche mientras mantienes un silencio sepulcral. Recuerda: si puedes oírlos, ellos ya
                     te han escuchado a ti.
                 </p>
-                <ul class="space-y-3 text-pd-grey">
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none"
+                <ul class="space-y-3 text-pd-grey text-sm md:text-base">
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-pd-red flex-shrink-0" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>Narrativa forense basada en audio.</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none"
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-pd-red flex-shrink-0" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>IA enemiga con audición hiper-realista.</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-pd-red" fill="none"
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-pd-red flex-shrink-0" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -190,76 +222,85 @@
     </section>
 
     <!-- 3. SECTION: MEDIA (Galería) -->
-    <section id="media" class="py-24 bg-pd-dark border-t border-b border-gray-800">
+    <section id="media" class="py-16 md:py-24 bg-pd-dark border-t border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Título de la Galería cambiado -->
-            <h2 class="text-5xl font-extrabold uppercase mb-4">Galería de ProjectDusk</h2>
-            <p class="text-pd-grey mb-12">Capturas de pantalla del complejo Delta y las criaturas que lo habitan.</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold uppercase mb-4 leading-tight">Galería de ProjectDusk</h2>
+            <p class="text-pd-grey mb-12 text-sm md:text-base px-4">Capturas de pantalla del complejo Delta y las criaturas que lo habitan.</p>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery-container">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6" id="gallery-container">
                 <!-- Tarjeta de Imagen 1 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer h-64 sm:h-48 md:h-56"
                     onclick="openModal(0)">
                     <img src="https://placehold.co/400x225/1a1a1a/444444?text=Creature+Closeup"
                         alt="Criatura en la oscuridad"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500 flex items-center justify-center">
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-bold tracking-wider text-sm bg-black/50 px-3 py-1 rounded-full border border-white/20">VER</span>
+                    </div>
                 </div>
                 <!-- Tarjeta de Imagen 2 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer h-64 sm:h-48 md:h-56"
                     onclick="openModal(1)">
                     <img src="https://placehold.co/400x225/1a1a1a/444444?text=Lab+Corridor"
                         alt="Laboratorio abandonado"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500 flex items-center justify-center">
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-bold tracking-wider text-sm bg-black/50 px-3 py-1 rounded-full border border-white/20">VER</span>
+                    </div>
                 </div>
                 <!-- Tarjeta de Imagen 3 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer h-64 sm:h-48 md:h-56"
                     onclick="openModal(2)">
                     <img src="https://placehold.co/400x225/1a1a1a/444444?text=Audio+System+Failure"
                         alt="Fallo de sistema"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500 flex items-center justify-center">
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-bold tracking-wider text-sm bg-black/50 px-3 py-1 rounded-full border border-white/20">VER</span>
+                    </div>
                 </div>
                 <!-- Tarjeta de Imagen 4 -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer h-64 sm:h-48 md:h-56"
                     onclick="openModal(3)">
                     <img src="https://placehold.co/400x225/1a1a1a/444444?text=The+Abyss" alt="El Abismo"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500"></div>
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out opacity-80 group-hover:opacity-100 gallery-image">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/0 transition duration-500 flex items-center justify-center">
+                        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-bold tracking-wider text-sm bg-black/50 px-3 py-1 rounded-full border border-white/20">VER</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 4. SECTION: REQUISITOS (Especificaciones) -->
-    <section id="specs" class="py-24 bg-black">
+    <section id="specs" class="py-16 md:py-24 bg-black">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold uppercase mb-12 text-pd-red">Requisitos del Sistema</h2>
+            <h2 class="text-3xl md:text-4xl font-bold uppercase mb-8 md:mb-12 text-pd-red">Requisitos del Sistema</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-left">
                 <!-- Columna: Mínimos -->
                 <div
-                    class="bg-pd-dark p-8 rounded-lg border border-gray-700 shadow-xl hover:border-gray-500 transition duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-pd-red">Mínimos</h3>
-                    <ul class="space-y-3 text-pd-grey">
-                        <li>**SO:** Windows 10 (64-bit)</li>
-                        <li>**CPU:** Intel Core i5 / AMD Ryzen 5</li>
-                        <li>**RAM:** 8 GB</li>
-                        <li>**GPU:** NVIDIA GeForce GTX 1060 / AMD Radeon RX 580</li>
-                        <li>**Almacenamiento:** 50 GB de espacio disponible</li>
+                    class="bg-pd-dark p-6 md:p-8 rounded-lg border border-gray-700 shadow-xl hover:border-gray-500 transition duration-300">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-4 text-pd-red">Mínimos</h3>
+                    <ul class="space-y-3 text-pd-grey text-sm md:text-base">
+                        <li><strong class="text-white">SO:</strong> Windows 10 (64-bit)</li>
+                        <li><strong class="text-white">CPU:</strong> Intel Core i5 / AMD Ryzen 5</li>
+                        <li><strong class="text-white">RAM:</strong> 8 GB</li>
+                        <li><strong class="text-white">GPU:</strong> NVIDIA GeForce GTX 1060 / AMD Radeon RX 580</li>
+                        <li><strong class="text-white">Almacenamiento:</strong> 50 GB de espacio disponible</li>
                     </ul>
                 </div>
                 <!-- Columna: Recomendados -->
                 <div
-                    class="bg-pd-dark p-8 rounded-lg border border-pd-red shadow-2xl hover:shadow-pd-red/20 transition duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Recomendados</h3>
-                    <ul class="space-y-3 text-white">
-                        <li>**SO:** Windows 11 (64-bit)</li>
-                        <li>**CPU:** Intel Core i7 / AMD Ryzen 7</li>
-                        <li>**RAM:** 16 GB</li>
-                        <li>**GPU:** NVIDIA GeForce RTX 3070 / AMD Radeon RX 6700 XT</li>
-                        <li>**Almacenamiento:** SSD, 50 GB de espacio disponible</li>
+                    class="bg-pd-dark p-6 md:p-8 rounded-lg border border-pd-red shadow-2xl hover:shadow-pd-red/20 transition duration-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-pd-red text-white text-xs font-bold px-3 py-1 uppercase rounded-bl-lg">Optimizado</div>
+                    <h3 class="text-xl md:text-2xl font-semibold mb-4 text-white">Recomendados</h3>
+                    <ul class="space-y-3 text-white text-sm md:text-base">
+                        <li><strong class="text-pd-red">SO:</strong> Windows 11 (64-bit)</li>
+                        <li><strong class="text-pd-red">CPU:</strong> Intel Core i7 / AMD Ryzen 7</li>
+                        <li><strong class="text-pd-red">RAM:</strong> 16 GB</li>
+                        <li><strong class="text-pd-red">GPU:</strong> NVIDIA GeForce RTX 3070 / AMD Radeon RX 6700 XT</li>
+                        <li><strong class="text-pd-red">Almacenamiento:</strong> SSD, 50 GB de espacio disponible</li>
                     </ul>
                 </div>
             </div>
@@ -267,17 +308,17 @@
     </section>
 
     <!-- 5. SECTION: SOBRE NOSOTROS (Actualizada y Optimizada) -->
-    <section id="studio" class="py-24 bg-pd-dark border-t border-gray-800">
+    <section id="studio" class="py-16 md:py-24 bg-pd-dark border-t border-gray-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold uppercase mb-4 tracking-tight">SOBRE NOSOTROS</h2>
-                <p class="text-xl text-pd-grey max-w-3xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold uppercase mb-4 tracking-tight">SOBRE NOSOTROS</h2>
+                <p class="text-lg md:text-xl text-pd-grey max-w-3xl mx-auto px-4">
                     Somos un estudio independiente obsesionado con la inmersión narrativa y el diseño de audio.
                     Creemos que el miedo no es lo que ves, sino lo que escuchas.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
                 <div class="p-6 bg-black border border-gray-800 rounded-lg hover:border-pd-red transition duration-300">
                     <div class="text-pd-red text-4xl mb-4">
                         ♥
@@ -304,15 +345,15 @@
     </section>
 
     <!-- 6. SECCIÓN: INNOVACIÓN MECÁNICA (Actualizada: Ecolocación + Tablet) -->
-    <section id="features" class="py-24 bg-black relative overflow-hidden">
+    <section id="features" class="py-16 md:py-24 bg-black relative overflow-hidden">
         <!-- Elemento decorativo de fondo -->
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-pd-red/10 to-transparent pointer-events-none"></div>
+        <div class="hidden md:block absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-pd-red/10 to-transparent pointer-events-none"></div>
 
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
             <div>
-                <h4 class="text-pd-red font-bold tracking-widest uppercase mb-2">Innovación en Gameplay</h4>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">ECOS DEL MIEDO:<br>LA TECNOLOGÍA COMO MALDICIÓN</h2>
-                <p class="text-pd-grey text-lg mb-6 leading-relaxed">
+                <h4 class="text-pd-red font-bold tracking-widest uppercase mb-2 text-sm md:text-base">Innovación en Gameplay</h4>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">ECOS DEL MIEDO:<br>LA TECNOLOGÍA COMO MALDICIÓN</h2>
+                <p class="text-pd-grey text-base md:text-lg mb-6 leading-relaxed">
                     En <strong>ProjectDusk</strong>, el jugador cuenta con dos herramientas vitales: una linterna tenue y una <strong>Tablet Forense</strong> modificada. 
                     Hemos creado una mecánica de riesgo/recompensa donde la tecnología es tu salvación y tu condena.
                 </p>
@@ -320,59 +361,59 @@
                     <div class="flex items-start">
                         <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pd-red/20 flex items-center justify-center text-pd-red font-bold">1</div>
                         <div class="ml-4">
-                            <h5 class="text-xl font-bold text-white">Ecolocación Táctica</h5>
+                            <h5 class="text-lg md:text-xl font-bold text-white">Ecolocación Táctica</h5>
                             <p class="text-pd-grey text-sm">Debes generar ruido físico (golpear paredes, lanzar objetos) para visualizar temporalmente el entorno en la pantalla de la tablet mediante un sonar. Pero cuidado: el mismo ruido que te permite ver, revela tu posición a la entidad.</p>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pd-red/20 flex items-center justify-center text-pd-red font-bold">2</div>
                         <div class="ml-4">
-                            <h5 class="text-xl font-bold text-white">El Ojo Digital</h5>
+                            <h5 class="text-lg md:text-xl font-bold text-white">El Ojo Digital</h5>
                             <p class="text-pd-grey text-sm">La cámara de la tablet revela lo invisible: huellas recientes, manchas de sangre ocultas y la silueta del demonio, permitiéndote verlo sin necesidad de luz directa.</p>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="flex-shrink-0 h-10 w-10 rounded-full bg-pd-red/20 flex items-center justify-center text-pd-red font-bold">3</div>
                         <div class="ml-4">
-                            <h5 class="text-xl font-bold text-white">Perspectiva Parasitaria</h5>
+                            <h5 class="text-lg md:text-xl font-bold text-white">Perspectiva Parasitaria</h5>
                             <p class="text-pd-grey text-sm">La entidad puede hackear la señal de tu dispositivo. En momentos de tensión, la pantalla dejará de mostrar tu entorno para mostrarte <strong>a ti mismo</strong> desde la perspectiva de la criatura, revelando cuán cerca está realmente.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Visualización abstracta de la mecánica (Ahora un Carrusel) -->
-            <div class="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800 shadow-2xl h-96 flex items-center justify-center group" id="features-carousel">
-                <div class="flex transition-transform duration-500 ease-in-out" id="carousel-slides">
+            <!-- Visualización abstracta de la mecánica (Ahora un Carrusel Responsive) -->
+            <div class="w-full relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800 shadow-2xl h-64 md:h-96 flex items-center justify-center group" id="features-carousel">
+                <div class="flex transition-transform duration-500 ease-in-out w-full h-full" id="carousel-slides">
                     <!-- Slide 1: Ecolocación -->
-                    <div class="w-full flex-shrink-0 h-96 relative">
+                    <div class="w-full flex-shrink-0 h-full relative">
                         <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/000000/333333?text=Ecolocaci%C3%B3n:+Sonar+Activo')] bg-cover bg-center opacity-50"></div>
-                        <div class="text-center p-8 relative z-20 h-full flex items-end justify-center pb-16">
-                            <p class="text-white text-2xl font-bold italic">"El sonido revela el camino... y tu posición."</p>
+                        <div class="text-center p-4 md:p-8 relative z-20 h-full flex items-end justify-center pb-8 md:pb-16">
+                            <p class="text-white text-lg md:text-2xl font-bold italic px-4">"El sonido revela el camino... y tu posición."</p>
                         </div>
                     </div>
                     <!-- Slide 2: Ojo Digital -->
-                    <div class="w-full flex-shrink-0 h-96 relative">
+                    <div class="w-full flex-shrink-0 h-full relative">
                         <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/000000/333333?text=Tablet:+Rastro+Invisible')] bg-cover bg-center opacity-50"></div>
-                        <div class="text-center p-8 relative z-20 h-full flex items-end justify-center pb-16">
-                            <p class="text-white text-2xl font-bold italic">"Lo que tus ojos no ven, la pantalla te lo muestra."</p>
+                        <div class="text-center p-4 md:p-8 relative z-20 h-full flex items-end justify-center pb-8 md:pb-16">
+                            <p class="text-white text-lg md:text-2xl font-bold italic px-4">"Lo que tus ojos no ven, la pantalla te lo muestra."</p>
                         </div>
                     </div>
                     <!-- Slide 3: Perspectiva Parasitaria -->
-                    <div class="w-full flex-shrink-0 h-96 relative">
+                    <div class="w-full flex-shrink-0 h-full relative">
                         <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/000000/333333?text=Tablet+Interface:+Demon+POV')] bg-cover bg-center opacity-50"></div>
-                        <div class="text-center p-8 relative z-20 h-full flex items-end justify-center pb-16">
-                            <p class="text-white text-2xl font-bold italic">"No mires la pantalla... te está mirando a ti."</p>
+                        <div class="text-center p-4 md:p-8 relative z-20 h-full flex items-end justify-center pb-8 md:pb-16">
+                            <p class="text-white text-lg md:text-2xl font-bold italic px-4">"No mires la pantalla... te está mirando a ti."</p>
                         </div>
                     </div>
                 </div>
                 <!-- Flechas de Navegación -->
-                <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="prev-slide" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2 md:p-3 transition-opacity duration-300 focus:outline-none">
+                    <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
-                <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="next-slide" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2 md:p-3 transition-opacity duration-300 focus:outline-none">
+                    <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
@@ -381,14 +422,14 @@
     </section>
 
     <!-- 7. NUEVA SECCIÓN: NOTICIAS (Con acordeón animado) -->
-    <section id="news" class="py-24 bg-pd-dark border-t border-b border-gray-800">
+    <section id="news" class="py-16 md:py-24 bg-pd-dark border-t border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold uppercase mb-4 tracking-tight">NOTICIAS Y ACTUALIZACIONES</h2>
-                <p class="text-xl text-pd-grey">Mantente al día con el desarrollo de ProjectDusk.</p>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold uppercase mb-4 tracking-tight">NOTICIAS Y ACTUALIZACIONES</h2>
+                <p class="text-lg md:text-xl text-pd-grey px-4">Mantente al día con el desarrollo de ProjectDusk.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 
                 <!-- Noticia 1 -->
                 <div class="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-pd-red transition duration-300 group flex flex-col">
@@ -465,37 +506,37 @@
     </section>
 
     <!-- 8. SECCIÓN: CONTACTO (Nuevo, antes de Reserva/Footer) -->
-    <section id="contact" class="py-24 bg-black">
+    <section id="contact" class="py-16 md:py-24 bg-black">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-extrabold uppercase mb-12 tracking-tight">CONTACTO</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold uppercase mb-8 md:mb-12 tracking-tight">CONTACTO</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <!-- Información General -->
-                <div class="p-8 border border-gray-800 rounded-lg hover:border-pd-red transition duration-300">
-                    <h3 class="text-xl font-bold text-white mb-2">Información General</h3>
+                <div class="p-6 md:p-8 border border-gray-800 rounded-lg hover:border-pd-red transition duration-300">
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-2">Información General</h3>
                     <p class="text-pd-grey mb-4 text-sm">¿Dudas? ¿Soporte? Estamos aquí para ayudarte.</p>
-                    <a href="mailto:info@voxenix.com" class="text-pd-red font-bold hover:underline text-lg">info@voxenix.com</a>
+                    <a href="mailto:info@voxenix.com" class="text-pd-red font-bold hover:underline text-base md:text-lg">info@voxenix.com</a>
                 </div>
                 <!-- Business & Publishing (VIP) -->
-                <div class="p-8 border-2 border-pd-red/30 rounded-lg bg-pd-red/5 hover:bg-pd-red/10 transition duration-300">
-                    <h3 class="text-xl font-bold text-white mb-2">Business & Publishing</h3>
+                <div class="p-6 md:p-8 border-2 border-pd-red/30 rounded-lg bg-pd-red/5 hover:bg-pd-red/10 transition duration-300">
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-2">Business & Publishing</h3>
                     <p class="text-pd-grey mb-4 text-sm">Oportunidades de negocio y propuestas editoriales.</p>
-                    <a href="mailto:partners@voxenix.com" class="text-pd-red font-bold hover:underline text-lg">partners@voxenix.com</a>
+                    <a href="mailto:partners@voxenix.com" class="text-pd-red font-bold hover:underline text-base md:text-lg">partners@voxenix.com</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 9. SECCIÓN: COMPRA / RESERVA -->
-    <section id="buy" class="py-24 bg-gradient-to-t from-pd-red/20 to-black border-t border-pd-dark">
+    <section id="buy" class="py-16 md:py-24 bg-gradient-to-t from-pd-red/20 to-black border-t border-pd-dark">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-5xl font-extrabold uppercase mb-6 tracking-tight">Sobrevive al Anochecer</h2>
-            <p class="text-xl text-pd-grey mb-12">Reserva ahora y obtén acceso anticipado a la Beta Cerrada.</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold uppercase mb-6 tracking-tight leading-tight">Sobrevive al Anochecer</h2>
+            <p class="text-lg md:text-xl text-pd-grey mb-12 px-4">Reserva ahora y obtén acceso anticipado a la Beta Cerrada.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 md:px-0">
                 <!-- Opción 1: Steam -->
                 <a href="https://store.steampowered.com" target="_blank"
-                    class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">STEAM</h3>
+                    class="group bg-black border border-gray-800 p-6 md:p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                    <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-pd-red transition">STEAM</h3>
                     <p class="text-pd-grey mb-6 text-sm">PC / Windows</p>
                     <div
                         class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
@@ -505,8 +546,8 @@
 
                 <!-- Opción 2: Epic Games -->
                 <a href="https://store.epicgames.com" target="_blank"
-                    class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">EPIC GAMES</h3>
+                    class="group bg-black border border-gray-800 p-6 md:p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                    <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-pd-red transition">EPIC GAMES</h3>
                     <p class="text-pd-grey mb-6 text-sm">PC / Windows</p>
                     <div
                         class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
@@ -516,8 +557,8 @@
 
                 <!-- Opción 3: PlayStation -->
                 <a href="https://store.playstation.com" target="_blank"
-                    class="group bg-black border border-gray-800 p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-pd-red transition">PS5</h3>
+                    class="group bg-black border border-gray-800 p-6 md:p-8 rounded-lg hover:border-pd-red hover:shadow-[0_0_30px_rgba(230,0,35,0.3)] transition duration-500">
+                    <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-pd-red transition">PS5</h3>
                     <p class="text-pd-grey mb-6 text-sm">PlayStation Store</p>
                     <div
                         class="bg-white text-black font-bold py-3 px-6 rounded hover:bg-pd-red hover:text-white transition duration-300">
@@ -529,16 +570,16 @@
     </section>
 
     <!-- 10. FOOTER (VOXENIX Studios - Estilo Completo) -->
-    <footer id="community" class="pt-16 pb-8 bg-pd-dark border-t border-gray-800">
+    <footer id="community" class="pt-12 md:pt-16 pb-8 bg-pd-dark border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Encabezado "Stay Connected" -->
-            <div class="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-8 mb-8">
-                <div class="text-2xl font-bold uppercase tracking-widest text-white mb-6 md:mb-0">
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-8 mb-8 space-y-6 md:space-y-0">
+                <div class="text-xl md:text-2xl font-bold uppercase tracking-widest text-white text-center md:text-left">
                     MANTENTE CONECTADO
                 </div>
                 <!-- Iconos de Redes Sociales -->
-                <div class="flex space-x-6">
+                <div class="flex flex-wrap justify-center gap-6">
                     <!-- YouTube -->
                     <a href="#" class="text-white hover:text-pd-red transition duration-300 transform hover:scale-110">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -567,33 +608,33 @@
             </div>
 
             <!-- Enlaces Legales -->
-            <div class="flex flex-wrap justify-center md:justify-start gap-4 md:gap-8 text-xs font-medium text-pd-grey uppercase tracking-wider">
+            <div class="flex flex-wrap justify-center gap-4 text-[10px] md:text-xs font-medium text-pd-grey uppercase tracking-wider text-center">
                 <a href="javascript:void(0)" onclick="openLegalModal('legal')" class="hover:text-white transition duration-200">Legal</a>
-                <span class="text-gray-700">|</span>
+                <span class="text-gray-700 hidden md:inline">|</span>
                 <a href="javascript:void(0)" onclick="openLegalModal('terms')" class="hover:text-white transition duration-200">Términos de Uso</a>
-                <span class="text-gray-700">|</span>
+                <span class="text-gray-700 hidden md:inline">|</span>
                 <a href="javascript:void(0)" onclick="openLegalModal('privacy')" class="hover:text-white transition duration-200">Política de Privacidad</a>
-                <span class="text-gray-700">|</span>
+                <span class="text-gray-700 hidden md:inline">|</span>
                 <a href="javascript:void(0)" onclick="openLegalModal('careers')" class="hover:text-white transition duration-200">Carreras</a>
-                <span class="text-gray-700">|</span>
+                <span class="text-gray-700 hidden md:inline">|</span>
                 <a href="javascript:void(0)" onclick="openLegalModal('cookies')" class="hover:text-white transition duration-200">Política de Cookies</a>
-                <span class="text-gray-700">|</span>
+                <span class="text-gray-700 hidden md:inline">|</span>
                 <a href="javascript:void(0)" onclick="openLegalModal('support')" class="hover:text-white transition duration-200">Soporte</a>
-                <span class="text-gray-700">|</span>
+                <span class="text-gray-700 hidden md:inline">|</span>
                 <a href="javascript:void(0)" onclick="openLegalModal('conduct')" class="hover:text-white transition duration-200">Código de Conducta</a>
-                <span class="text-gray-700">|</span>
-                <a href="javascript:void(0)" onclick="openLegalModal('choices')" class="hover:text-white transition duration-200 flex items-center gap-1">
+                <span class="text-gray-700 hidden md:inline">|</span>
+                <a href="javascript:void(0)" onclick="openLegalModal('choices')" class="hover:text-white transition duration-200 flex items-center gap-1 justify-center md:justify-start">
                     Tus Opciones de Privacidad 
                     <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </a>
             </div>
 
             <!-- Copyright -->
-            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between">
-                <div class="mb-4 md:mb-0">
-                    <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-8 opacity-60">
+            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col items-center">
+                <div class="mb-4">
+                    <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo" class="h-6 md:h-8 opacity-60">
                 </div>
-                <p class="text-xs text-gray-600 text-center md:text-right">
+                <p class="text-[10px] md:text-xs text-gray-600 text-center">
                     &copy; 2025 VOXENIX Studios. Todos los derechos reservados. ProjectDusk es una marca registrada.
                 </p>
             </div>
@@ -601,39 +642,39 @@
     </footer>
 
     <!-- MODAL DE GALERÍA (Imágenes) -->
-    <div id="gallery-modal" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+    <div id="gallery-modal" class="fixed inset-0 bg-black/95 z-[60] hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
         <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-pd-red z-50 p-2">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <div class="relative w-full max-w-5xl max-h-[85vh] flex items-center justify-center">
             <img id="modal-image" src="" alt="Imagen de galería" class="max-w-full max-h-[85vh] object-contain">
-            <button onclick="changeImage(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <button onclick="changeImage(-1)" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2">
+                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
             </button>
-            <button onclick="changeImage(1)" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            <button onclick="changeImage(1)" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white hover:text-pd-red bg-black/50 rounded-full p-2">
+                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
         </div>
         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white"><span id="image-counter"></span></div>
     </div>
 
     <!-- MODAL LEGAL (Texto) -->
-    <div id="legal-modal" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
-        <div class="bg-pd-dark w-full max-w-4xl max-h-[85vh] rounded-lg border border-gray-800 flex flex-col shadow-2xl">
+    <div id="legal-modal" class="fixed inset-0 bg-black/95 z-[70] hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-pd-dark w-full max-w-4xl max-h-[90vh] rounded-lg border border-gray-800 flex flex-col shadow-2xl relative">
             <!-- Header del Modal -->
-            <div class="flex justify-between items-center p-6 border-b border-gray-800">
-                <h3 id="legal-modal-title" class="text-2xl font-bold text-white uppercase tracking-wider">TÍTULO LEGAL</h3>
-                <button onclick="closeLegalModal()" class="text-gray-400 hover:text-pd-red transition">
+            <div class="flex justify-between items-center p-4 md:p-6 border-b border-gray-800">
+                <h3 id="legal-modal-title" class="text-xl md:text-2xl font-bold text-white uppercase tracking-wider">TÍTULO LEGAL</h3>
+                <button onclick="closeLegalModal()" class="text-gray-400 hover:text-pd-red transition p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
             <!-- Cuerpo del Modal (Scrollable) -->
-            <div id="legal-modal-body" class="p-8 overflow-y-auto text-pd-grey text-sm leading-relaxed space-y-4 legal-scroll">
+            <div id="legal-modal-body" class="p-6 md:p-8 overflow-y-auto text-pd-grey text-sm leading-relaxed space-y-4 legal-scroll">
                 <!-- El contenido se inyecta aquí vía JS -->
             </div>
             <!-- Footer del Modal -->
-            <div class="p-6 border-t border-gray-800 flex justify-end">
-                <button onclick="closeLegalModal()" class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-2 px-6 rounded text-sm transition">CERRAR</button>
+            <div class="p-4 md:p-6 border-t border-gray-800 flex justify-end">
+                <button onclick="closeLegalModal()" class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-2 px-6 rounded text-sm transition w-full md:w-auto">CERRAR</button>
             </div>
         </div>
     </div>
@@ -694,6 +735,18 @@
                 <p>Si deseas ejercer tus derechos de privacidad o darte de baja de nuestras comunicaciones de marketing, por favor contáctanos en privacy@voxenix.com.</p>
             `
         };
+
+        // Función para alternar el menú móvil
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             // Inicializar elementos
