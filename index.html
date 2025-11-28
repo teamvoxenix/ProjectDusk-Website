@@ -78,13 +78,13 @@
     <!-- NAVEGACIÓN FIJA (Header) -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md shadow-xl border-b border-pd-dark transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-24">
-                <!-- Altura aumentada para acomodar el logo -->
+            <div class="flex items-center justify-between h-20 md:h-28"> <!-- Aumentada altura del navbar para el logo grande -->
+                <!-- Logo Grande a la Izquierda -->
                 <div class="flex items-center flex-shrink-0">
                     <a href="#" class="flex items-center group">
-                        <!-- URL DEL LOGO EN IMGUR -->
+                        <!-- URL DEL LOGO EN IMGUR - Aumentado significativamente -->
                         <img src="https://i.imgur.com/aa7GqfO.png" alt="VOXENIX Studios Logo"
-                            class="h-8 md:h-12 lg:h-16 transition duration-500 ease-in-out transform group-hover:scale-105 object-contain">
+                            class="h-12 sm:h-16 md:h-20 lg:h-24 transition duration-500 ease-in-out transform group-hover:scale-105 object-contain">
                     </a>
                 </div>
                 
@@ -103,7 +103,7 @@
                         <a href="#news"
                             class="text-pd-grey hover:text-white px-2 py-2 rounded-md text-sm font-medium transition duration-300 uppercase hover:tracking-wider hover:text-pd-red">Noticias</a>
                         
-                        <!-- Botón Reservar Ahora (Desktop) -->
+                        <!-- Botón Reservar Ahora (Desktop) - ELIMINADO EL TEXTO "RESERVAR" AL LADO, SOLO QUEDA ESTE BOTÓN -->
                         <a href="#buy"
                             class="ml-4 bg-pd-red hover:bg-pd-pulse text-white px-5 py-2 rounded-sm text-sm font-bold transition duration-300 uppercase tracking-wide transform hover:scale-105 shadow-lg shadow-pd-red/20 cta-button">
                             RESERVAR AHORA
@@ -135,16 +135,19 @@
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION (Pantalla Completa) -->
-    <header class="hero-background flex items-end pb-12 md:pb-20 lg:pb-32 relative">
+    <!-- 1. HERO SECTION (Pantalla Completa - Optimizada Móvil) -->
+    <header class="hero-background flex items-end pb-16 md:pb-20 lg:pb-32 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
             <div class="max-w-4xl">
+                <!-- Título ajustado para móviles: text-5xl a text-8xl -->
                 <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold uppercase mb-2 md:mb-4 tracking-tighter leading-none text-white drop-shadow-lg">
                     PROJECT DUSK
                 </h1>
-                <p class="text-pd-red text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold uppercase tracking-widest mb-6 md:mb-10 drop-shadow-md">
+                <!-- Subtítulo ajustado -->
+                <p class="text-pd-red text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold uppercase tracking-widest mb-8 md:mb-10 drop-shadow-md">
                     El Sonido del Miedo es tu único compañero
                 </p>
+                <!-- Botones apilados en móvil, fila en desktop -->
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
                     <a href="#buy"
                         class="bg-pd-red hover:bg-pd-pulse text-white font-bold py-3 md:py-4 px-8 md:px-10 text-base md:text-xl transition duration-300 ease-out transform hover:scale-105 cta-button shadow-2xl hover:shadow-pd-red/50 text-center inline-block w-full sm:w-auto">
@@ -586,7 +589,7 @@
                     </a>
                     <!-- Instagram -->
                     <a href="#" class="text-white hover:text-pd-red transition duration-300 transform hover:scale-110">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                     </a>
                     <!-- X (Twitter) -->
                     <a href="#" class="text-white hover:text-pd-red transition duration-300 transform hover:scale-110">
